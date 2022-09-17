@@ -1,12 +1,7 @@
-// import type { NextPage } from 'next'
-// import Head from 'next/head'
-// import Image from 'next/image'
-// import styles from '../styles/Home.module.css'
-
-// import Link from "next/link";
 import { client } from "libs/client"; // srcから見た絶対パスで指定
 import { Blog } from "types/blog"; // srcから見た絶対パスで指定
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export const getStaticProps = async () => {
   const blog = await client.get({ endpoint: "blog" });
@@ -39,7 +34,7 @@ export default function Home({ blogs }: Props) {
             key={blog.id}
             onClick={() => router.push(`/blog/${blog.id}`)}
           >
-            <img
+            <Image
               className="w-full"
               src={blog.image.url}
               alt="Sunset in the mountains"
