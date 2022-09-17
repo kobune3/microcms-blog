@@ -20,6 +20,7 @@ type Props = {
 };
 
 export default function Home({ blogs }: Props) {
+  console.log(blogs);
   const router = useRouter();
 
   return (
@@ -34,11 +35,7 @@ export default function Home({ blogs }: Props) {
             key={blog.id}
             onClick={() => router.push(`/blog/${blog.id}`)}
           >
-            <Image
-              className="w-full"
-              src={blog.image.url}
-              alt="Sunset in the mountains"
-            />
+            <img className="w-full" src={blog.image.url} alt="Next Image" />
             <div className="px-6 py-4">{blog.title}</div>
             <div className="px-6 pt-4 pb-2">
               {blog.tags.map(tag => (
